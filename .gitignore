@@ -40,4 +40,4 @@ sw.*
 .env
 .output
 
-.editorconfig
+**/.editorconfig
