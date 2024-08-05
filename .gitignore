@@ -1,3 +1,5 @@
+.editorconfig
+
 *.suo
 *.user
 *.dotCover
@@ -40,4 +42,3 @@ sw.*
 .env
 .output
 
-**/.editorconfig
