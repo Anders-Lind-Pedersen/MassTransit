@@ -39,3 +39,5 @@ dist
 sw.*
 .env
 .output
+
+.editorconfig

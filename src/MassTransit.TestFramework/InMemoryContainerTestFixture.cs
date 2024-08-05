@@ -33,9 +33,8 @@ namespace MassTransit.TestFramework
         {
             _cancellation = new List<Action<CancellationToken>>();
         }
-
+        
         protected IServiceProvider ServiceProvider { get; private set; }
-
         protected IBusRegistrationContext BusRegistrationContext => ServiceProvider.GetRequiredService<IBusRegistrationContext>();
 
         protected IBus Bus => InMemoryTestHarness.Bus;
