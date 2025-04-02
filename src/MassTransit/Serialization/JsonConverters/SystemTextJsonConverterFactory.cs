@@ -144,34 +144,34 @@
             {
                 if (!typeToConvert.IsFSharpType())
                 {
-                    if (typeToConvert == typeof(IDictionary<string, object>))
-                        return new CaseInsensitiveDictionaryStringObjectJsonConverter<IDictionary<string, object>>();
-                    if (typeToConvert == typeof(Dictionary<string, object>))
-                        return new CaseInsensitiveDictionaryStringObjectJsonConverter<Dictionary<string, object>>();
-                    if (typeToConvert == typeof(IReadOnlyDictionary<string, object>))
-                        return new CaseInsensitiveDictionaryStringObjectJsonConverter<IReadOnlyDictionary<string, object>>();
-                    if (typeToConvert == typeof(IEnumerable<KeyValuePair<string, object>>))
-                        return new CaseInsensitiveDictionaryStringObjectJsonConverter<IEnumerable<KeyValuePair<string, object>>>();
+                    // if (typeToConvert == typeof(IDictionary<string, object>))
+                    //     return new CaseInsensitiveDictionaryStringObjectJsonConverter<IDictionary<string, object>>();
+                    // if (typeToConvert == typeof(Dictionary<string, object>))
+                    //     return new CaseInsensitiveDictionaryStringObjectJsonConverter<Dictionary<string, object>>();
+                    // if (typeToConvert == typeof(IReadOnlyDictionary<string, object>))
+                    //     return new CaseInsensitiveDictionaryStringObjectJsonConverter<IReadOnlyDictionary<string, object>>();
+                    // if (typeToConvert == typeof(IEnumerable<KeyValuePair<string, object>>))
+                    //     return new CaseInsensitiveDictionaryStringObjectJsonConverter<IEnumerable<KeyValuePair<string, object>>>();
 
-                    if (typeToConvert.ClosesType(typeof(IDictionary<,>), out Type[] elementTypes)
-                        || typeToConvert.ClosesType(typeof(IReadOnlyDictionary<,>), out elementTypes)
-                        || typeToConvert.ClosesType(typeof(Dictionary<,>), out elementTypes)
-                        || (typeToConvert.ClosesType(typeof(IEnumerable<>), out Type[] enumerableTypes)
-                            && enumerableTypes[0].ClosesType(typeof(KeyValuePair<,>), out elementTypes)
-                            && elementTypes[1] == typeof(object)))
-                    {
-                        if (elementTypes[0] == typeof(string))
-                        {
-                            return (JsonConverter)Activator.CreateInstance(typeof(CaseInsensitiveDictionaryJsonConverter<,>)
-                                .MakeGenericType(typeToConvert, elementTypes[1]));
-                        }
-
-                        if (elementTypes[0] == typeof(Uri))
-                        {
-                            return (JsonConverter)Activator.CreateInstance(typeof(UriDictionarySystemTextJsonConverter<,>)
-                                .MakeGenericType(typeToConvert, elementTypes[1]));
-                        }
-                    }
+                    // if (typeToConvert.ClosesType(typeof(IDictionary<,>), out Type[] elementTypes)
+                    //     || typeToConvert.ClosesType(typeof(IReadOnlyDictionary<,>), out elementTypes)
+                    //     || typeToConvert.ClosesType(typeof(Dictionary<,>), out elementTypes)
+                    //     || (typeToConvert.ClosesType(typeof(IEnumerable<>), out Type[] enumerableTypes)
+                    //         && enumerableTypes[0].ClosesType(typeof(KeyValuePair<,>), out elementTypes)
+                    //         && elementTypes[1] == typeof(object)))
+                    // {
+                    //     if (elementTypes[0] == typeof(string))
+                    //     {
+                    //         return (JsonConverter)Activator.CreateInstance(typeof(CaseInsensitiveDictionaryJsonConverter<,>)
+                    //             .MakeGenericType(typeToConvert, elementTypes[1]));
+                    //     }
+                    //
+                    //     if (elementTypes[0] == typeof(Uri))
+                    //     {
+                    //         return (JsonConverter)Activator.CreateInstance(typeof(UriDictionarySystemTextJsonConverter<,>)
+                    //             .MakeGenericType(typeToConvert, elementTypes[1]));
+                    //     }
+                    // }
                 }
             }
 
